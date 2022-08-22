@@ -45,7 +45,7 @@ img {
 }
 
 .card-section {
-  background: url(images/bg-main-desktop.png);
+  background: url(../images/bg-main-desktop.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -121,7 +121,7 @@ img {
 }
 
 /* Form Section */
-.form-section {
+.content-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,7 +309,7 @@ input::placeholder {
   }
 
   .card-section {
-    background-image: url(images/bg-main-mobile.png) !important;
+    background-image: url(../images/bg-main-mobile.png) !important;
     width: 100%;
     height: 50%;
     display: flex !important;
@@ -345,7 +345,7 @@ input::placeholder {
     margin-bottom: 1.8em;
   }
 
-  .form-section {
+  .content-section {
     margin: 4em 0 0 0;
     padding: 1em 0em;
     justify-content: flex-start;
