@@ -172,3 +172,7 @@ function validateField(input, validatedField, error) {
     successFlag = false;
   }
 }
+
+function successContinue() {
+  location.href = '/';
+}

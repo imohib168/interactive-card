@@ -198,6 +198,11 @@ input::placeholder {
   font-size: 1.2rem;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.075, 0, 0.165, 1);
+}
+
+.btn:hover {
+  opacity: 0.8;
 }
 
 /* Error */
