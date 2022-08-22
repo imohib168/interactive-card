@@ -47,8 +47,6 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
 It's quite a long ago since I made my last project using HTML, CSS & JS as I'm more writing React Application these days. But It's nice to fall back to the core and do some fun projects to test your skills & I'm not hisitant to say that while doing the project I came across some challenges with JS but I tried my level best to do this with on my own in the end I passed all the challenges and learned new things as well.
 
 ## Author
