@@ -47,9 +47,9 @@ Users should be able to:
 
 ### What I learned
 
-It's quite a long ago since I made my last project using HTML, CSS & JS as I'm more writing React Application these days. But It's nice to fall back to the core and do some fun projects to test your skills & I'm not hisitant to say that while doing the project I came across some challenges with JS but I tried my level best to do this with on my own in the end I passed all the challenges and learned new things as well.
+It's quite a long ago since I made my last project using HTML, CSS & JS as I'm more writing React Application these days. But It's nice to fall back to the core and do some fun projects to test your skills & I'm not hisitant to say that while doing the project I came across some challenges with JS but I tried my level best solve those challenges on my own & while figuring out the solution for those challenges I got to learn some new stuff as well.
 
 ## Author
 
 - Website - [Mohib Ismail](https://github.com/imohib168)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@imohib168](https://www.frontendmentor.io/profile/imohib168)
