@@ -363,6 +363,10 @@ input::placeholder {
     margin-left: 0em;
     margin: 0 auto;
   }
+
+  .attribution {
+    margin-top: 8em;
+  }
 }
 
 @media screen and (max-width: 400px) {

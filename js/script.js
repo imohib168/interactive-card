@@ -17,12 +17,11 @@ const cardCVC = document.getElementById('cvc');
 
 // Patterns
 const namePattern = /^[a-zA-Z\s]*$/g;
-const cardNoPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+const cardNoPattern =
+  /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
 const monthPattern = /(^[1-9]$)|(^[0-1][1-2]$)|(^0[1-9]$)/;
 const yearPattern = /^[0-9]{2}$/;
 const cvcPattern = /^[0-9]{3}$/;
-
-let successFlag = false;
 
 // Listener for filling out card
 document.addEventListener('input', handleFillCard);
@@ -30,7 +29,7 @@ document.addEventListener('input', handleFillCard);
 // Form submit listner
 form.addEventListener('submit', handleSubmitForm);
 
-// Handle Card fill
+// Function to fill card values
 function handleFillCard(e) {
   let name = 'Jane Appleseed';
   let number = '0000 0000 0000 0000';
@@ -59,66 +58,68 @@ function handleFillCard(e) {
   }
 }
 
-// Handle Form submit
+// Function to handle the form Submission
 function handleSubmitForm(e) {
   e.preventDefault();
 
-  if (cardHolderNameInput.value === '') {
-    showError(cardHolderNameInput, "Can't be blank");
-  } else {
-    handleValidateForm();
-  }
-
-  if (cardNoInput.value === '') {
-    showError(cardNoInput, "Can't be blank");
-  } else {
-    handleValidateForm();
-  }
-
-  if (monthInput.value === '') {
-    showError(monthInput, "Can't be blank");
-    showError(yearInput, "Can't be blank");
-  } else if (monthInput.value.length > 0) {
-    handleValidateForm();
-
-    if (yearInput.value === '') {
-      showError(yearInput, "Can't be blank");
-    } else {
-      handleValidateForm();
-    }
-  }
-
-  if (cvcInput.value === '') {
-    showError(cvcInput, "Can't be blank");
-  } else {
-    handleValidateForm();
-  }
-}
-
-// Form Validator
-function handleValidateForm() {
   const isNameValidated = validate(cardHolderNameInput, namePattern);
   const isCardNoValidate = validate(cardNoInput, cardNoPattern);
   const isMonthValidated = validate(monthInput, monthPattern);
   const isYearValidated = validate(yearInput, yearPattern);
   const isCVCValidated = validate(cvcInput, cvcPattern);
 
-  validateField(
-    cardHolderNameInput,
-    isNameValidated,
-    'Wrong format, Letters only'
-  );
-  validateField(cardNoInput, isCardNoValidate, 'Wrong format for Card Number');
-  if (isMonthValidated) {
-    showSuccess(monthInput);
-    validateField(yearInput, isYearValidated, 'Wrong format for year');
+  if (cardHolderNameInput.value == '') {
+    showError(cardHolderNameInput, "Can't be blank");
+  } else if (!isNameValidated) {
+    showError(cardHolderNameInput, 'Wrong format, Letters only');
   } else {
-    showError(monthInput, 'Wrong format for month');
-    successFlag = false;
+    showSuccess(cardHolderNameInput);
   }
-  validateField(cvcInput, isCVCValidated, 'Wrong format for CVC');
 
-  if (successFlag) {
+  if (cardNoInput.value == '') {
+    showError(cardNoInput, "Can't be blank");
+  } else if (!isCardNoValidate) {
+    showError(cardNoInput, 'Wrong format for Card Number');
+  } else {
+    showSuccess(cardNoInput);
+  }
+
+  if (monthInput.value == '' && yearInput.value == '') {
+    showError(monthInput, "Can't be blank");
+    showError(yearInput, "Can't be blank");
+  } else if (monthInput.value && yearInput.value == '') {
+    showError(yearInput, "Can't be blank");
+  } else if (monthInput.value == '' && yearInput.value) {
+    showError(monthInput, "Can't be blank");
+  } else if (monthInput.value && yearInput.value) {
+    if (!isMonthValidated && !isYearValidated) {
+      showError(monthInput, 'Wrong format for month');
+      showError(yearInput, 'Wrong format for year');
+    } else if (!isMonthValidated && isYearValidated) {
+      showError(yearInput, 'Wrong format for month');
+    } else if (isMonthValidated && !isYearValidated) {
+      showError(monthInput, 'Wrong format for year');
+    } else {
+      showSuccess(monthInput);
+      showSuccess(yearInput);
+    }
+  }
+
+  if (cvcInput.value == '') {
+    showError(cvcInput, "Can't be blank");
+  } else if (!isCVCValidated) {
+    showError(cvcInput, 'Wrong format for CVC');
+  } else {
+    showSuccess(cvcInput);
+  }
+
+  if (
+    isNameValidated &&
+    isCardNoValidate &&
+    isMonthValidated &&
+    isYearValidated &&
+    isCVCValidated
+  ) {
     document.getElementById('form-section').classList.add('hidden');
     successPage.classList.add('show-success-page');
   }
@@ -126,17 +127,14 @@ function handleValidateForm() {
 
 // Helper Functions
 function fillCard(targetValue, targetDiv, defaultValue) {
-  if (targetValue === '') {
-    targetDiv.innerText = defaultValue;
-  } else {
-    targetDiv.innerText = targetValue;
-  }
+  if (targetValue == '') targetDiv.innerText = defaultValue;
+  else targetDiv.innerText = targetValue;
 }
 
 function showError(input, message = 'Error! Something went wrong') {
   let parentElem = input.parentElement;
 
-  if (input.name === 'month-input' || input.name === 'year-input') {
+  if (input.name == 'month-input' || input.name == 'year-input') {
     parentElem = input.parentElement.parentElement;
   }
 
@@ -149,7 +147,7 @@ function showError(input, message = 'Error! Something went wrong') {
 function showSuccess(input) {
   let parentElem = input.parentElement;
 
-  if (input.name === 'month-input' || input.name === 'year-input') {
+  if (input.name == 'month-input' || input.name == 'year-input') {
     parentElem = input.parentElement.parentElement;
   }
 
@@ -159,17 +157,11 @@ function showSuccess(input) {
 }
 
 function validate(input, pattern) {
-  if (input.value.match(pattern)) return true;
-  else return false;
-}
-
-function validateField(input, validatedField, error) {
-  if (validatedField) {
-    showSuccess(input);
-    successFlag = true;
+  if (input.name == 'holder-name-input' && input.value == '') {
+    showError(input, "Can't be blank");
   } else {
-    showError(input, error);
-    successFlag = false;
+    if (input.value.match(pattern)) return true;
+    else return false;
   }
 }
 
