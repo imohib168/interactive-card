@@ -1,19 +1,19 @@
 // getting input fields & from by ID
 const form = document.getElementById('form');
-const cardHolderNameInput = document.getElementById('holder-name-input');
-const cardNoInput = document.getElementById('card-no-input');
+const nameInput = document.getElementById('cardholder-input');
+const cardNoInput = document.getElementById('cardNo-input');
 const monthInput = document.getElementById('month-input');
 const yearInput = document.getElementById('year-input');
 const cvcInput = document.getElementById('cvc-input');
 
-const successPage = document.getElementById('thankyou');
+const formSubmitted = document.getElementById('submitted');
 
 // getting divs for filling card
-const cardHolderName = document.getElementById('card-holder-name');
-const cardNumber = document.getElementById('card-number');
-const cardMonth = document.getElementById('month');
-const cardYear = document.getElementById('year');
-const cardCVC = document.getElementById('cvc');
+const cardName = document.getElementById('card-front-name');
+const cardNumber = document.getElementById('card-front-number');
+const cardMonth = document.getElementById('card-front-month');
+const cardYear = document.getElementById('card-front-year');
+const cardCVC = document.getElementById('card-back-cvc');
 
 // Patterns
 const namePattern = /^[a-zA-Z\s]*$/g;
@@ -25,7 +25,6 @@ const cvcPattern = /^[0-9]{3}$/;
 
 // Listener for filling out card
 document.addEventListener('input', handleFillCard);
-
 // Form submit listner
 form.addEventListener('submit', handleSubmitForm);
 
@@ -38,10 +37,10 @@ function handleFillCard(e) {
   let cvc = '000';
 
   switch (e.target.name) {
-    case 'holder-name-input':
-      fillCard(e.target.value, cardHolderName, name);
+    case 'cardholder-input':
+      fillCard(e.target.value, cardName, name);
       break;
-    case 'card-no-input':
+    case 'cardNo-input':
       fillCard(e.target.value, cardNumber, number);
       break;
     case 'month-input':
@@ -62,18 +61,18 @@ function handleFillCard(e) {
 function handleSubmitForm(e) {
   e.preventDefault();
 
-  const isNameValidated = validate(cardHolderNameInput, namePattern);
+  const isNameValidated = validate(nameInput, namePattern);
   const isCardNoValidate = validate(cardNoInput, cardNoPattern);
   const isMonthValidated = validate(monthInput, monthPattern);
   const isYearValidated = validate(yearInput, yearPattern);
   const isCVCValidated = validate(cvcInput, cvcPattern);
 
-  if (cardHolderNameInput.value == '') {
-    showError(cardHolderNameInput, "Can't be blank");
+  if (nameInput.value == '') {
+    showError(nameInput, "Can't be blank");
   } else if (!isNameValidated) {
-    showError(cardHolderNameInput, 'Wrong format, Letters only');
+    showError(nameInput, 'Wrong format, Letters only');
   } else {
-    showSuccess(cardHolderNameInput);
+    showSuccess(nameInput);
   }
 
   if (cardNoInput.value == '') {
@@ -120,8 +119,8 @@ function handleSubmitForm(e) {
     isYearValidated &&
     isCVCValidated
   ) {
-    document.getElementById('form-section').classList.add('hidden');
-    successPage.classList.add('show-success-page');
+    document.getElementById('form').classList.add('hidden');
+    formSubmitted.classList.add('show-success-page');
   }
 }
 
@@ -141,7 +140,7 @@ function showError(input, message = 'Error! Something went wrong') {
   const error = parentElem.querySelector('.error');
   input.classList.add('error-border');
   error.innerText = message;
-  error.className = 'error show-error';
+  error.className = 'error visible-error';
 }
 
 function showSuccess(input) {
@@ -152,7 +151,7 @@ function showSuccess(input) {
   }
 
   const error = parentElem.querySelector('.error');
-  error.classList.remove('show-error');
+  error.classList.remove('visible-error');
   input.classList.remove('error-border');
 }
 

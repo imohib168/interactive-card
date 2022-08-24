@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
 
-    <link 
+    <link
       rel="icon"
       type="image/png"
       sizes="32x32"
@@ -15,93 +15,117 @@
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
   <body>
-    <main class="main">
+    <main class="container">
       <section class="card-section">
-        <div class="main-card-front">
-          <div class="front-card">
+        <img
+          class="main-bg-desktop"
+          src="images/bg-main-desktop.png"
+          alt="main-desktop-background"
+        />
+        <img
+          class="main-bg-mobile"
+          src="images/bg-main-mobile.png"
+          alt="main-desktop-background"
+        />
+
+        <div class="cards">
+          <div class="card-front">
             <img src="images/bg-card-front.png" alt="credit-card-front" />
 
-            <div class="card-info">
-              <img
-                class="card-logo"
-                src="images/card-logo.svg"
-                alt="credit-card-logo"
-              />
-              <h2 class="acc-no" id="card-number">0000 0000 0000 0000</h2>
-              <div class="cust-info">
-                <h3 class="cust-name" id="card-holder-name">Jane Appleseed</h3>
-                <h4 class="cust-exp"><span id="month">00</span>&nbsp;/&nbsp;<span id="year">00</span></h4>
+            <div class="card-content">
+              <div class="card-front-logo">
+                <img src="images/card-logo.svg" alt="credit-card-logo" />
+              </div>
+              <h1 class="card-front-number" id="card-front-number">
+                0000 0000 0000 0000
+              </h1>
+              <div class="more-content">
+                <h2 class="card-front-name" id="card-front-name">
+                  Jane Appleseed
+                </h2>
+                <h3 class="card-front-expire">
+                  <span id="card-front-month">00</span> /
+                  <span id="card-front-year">00</span>
+                </h3>
               </div>
             </div>
           </div>
-        </div>
-        <div class="main-card-back">
-          <div class="back-card">
-            <img src="images/bg-card-back.png" alt="credit card back" />
-            <h5 class="cvc" id="cvc">000</h5>
+          <div class="card-back">
+            <img src="images/bg-card-back.png" alt="credit-card-back" />
+            <h4 class="card-back-cvc" id="card-back-cvc">000</h4>
           </div>
         </div>
       </section>
-      <div class="content-section" id="form-section">
+      <section class="content-section">
         <form class="form" id="form">
-          <div>
-            <label for="holder-name-input">Cardholder name</label>
-            <input 
-              id="holder-name-input" 
-              name="holder-name-input" 
-              type="text" 
-              placeholder="e.g. Jane Applessed" 
+          <div class="field">
+            <label for="cardholder-input">Cardholder name</label>
+            <input
+              type="text"
+              id="cardholder-input"
+              name="cardholder-input"
+              placeholder="e.g. Jane Applessed"
             />
             <p class="error">error!</p>
           </div>
 
-          <div>
-            <label for="card-no-input">Card Number</label>
-            <input name="card-no-input" id="card-no-input" type="text" placeholder="e.g. 1234 1234 1234 1231" oninput="handleInput()" />
+          <div class="field">
+            <label for="cardNo-input">Card Number</label>
+            <input
+              type="text"
+              name="cardNo-input"
+              id="cardNo-input"
+              placeholder="e.g. 1234 1234 1234 1231"
+            />
             <p class="error">error!</p>
           </div>
 
-          <div class="sec-info">
-            <div class="info-date">
+          <div class="field card-information">
+            <div class="card-expire">
               <label for="month-input">Exp. Date (MM/YY)</label>
-              <div class="date-fields">
-                <input name="month-input" id="month-input" type="text" placeholder="MM" />
-                <input name="year-input" id="year-input" type="text" placeholder="YY" />
+              <div class="card-date">
+                <input
+                  type="text"
+                  name="month-input"
+                  id="month-input"
+                  placeholder="MM"
+                />
+                <input
+                  type="text"
+                  name="year-input"
+                  id="year-input"
+                  placeholder="YY"
+                />
               </div>
               <p class="error">error!</p>
             </div>
-            <div class="info-cvc">
+            <div class="card-cvc">
               <label for="cvc-input">CVC</label>
-              <input id="cvc-input" name="cvc-input" type="text" placeholder="e.g. 123" />
+              <input
+                type="text"
+                id="cvc-input"
+                name="cvc-input"
+                placeholder="e.g. 123"
+              />
               <p class="error">error!</p>
             </div>
           </div>
 
           <button type="submit" class="btn">Confirm</button>
         </form>
-      </div>
+      </section>
 
-      <section class="content-section hidden" id="thankyou">
-        <div class="thankyou">
+      <div class="content-section">
+        <div class="submitted hidden" id="submitted">
           <img src="images/icon-complete.svg" alt="complete icon" />
-
-          <h3>Thank you!</h1>
-
+          <h3>Thank you!</h3>
           <p>We've added your card details</p>
-
-          <button type="button" class="btn" onclick="successContinue()">Continue</button>
+          <button type="button" class="btn" onclick="successContinue()">
+            Continue
+          </button>
         </div>
       </div>
     </main>
-
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://github.com/imohib168">Mohib Ismail</a>.
-    </footer>
-
-
 
     <script src="js/script.js"></script>
   </body>
