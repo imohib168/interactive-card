@@ -64,14 +64,14 @@ h6 {
 
 .main-card-front {
   position: absolute;
-  top: 15.5%;
-  left: 8%;
+  top: calc(100px * 1);
+  left: 150px;
 }
 
 .main-card-back {
   position: absolute;
-  top: 55%;
-  left: 15%;
+  top: calc(100px * 3.7);
+  left: 250px;
 }
 
 .front-card {
@@ -409,6 +409,16 @@ input::placeholder {
 @media screen and (max-width: 280px) {
   .main > * {
     min-width: fit-content;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .main-card-front {
+    top: calc(100px * 2);
+  }
+
+  .main-card-back {
+    top: calc(100px * 5);
   }
 }
 
