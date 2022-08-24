@@ -51,5 +51,5 @@ It's quite a long ago since I made my last project using HTML, CSS & JS as I'm m
 
 ## Author
 
-- Website - [Mohib Ismail](https://github.com/imohib168)
+- Github - [Mohib Ismail](https://github.com/imohib168)
 - Frontend Mentor - [@imohib168](https://www.frontendmentor.io/profile/imohib168)
