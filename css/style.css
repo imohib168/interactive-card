@@ -231,7 +231,7 @@ h6 {
 /* Form Submitted (Thankyou page) */
 .submitted {
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
   text-transform: uppercase;
   text-align: center;
 
