@@ -28,7 +28,8 @@ Users should be able to:
 
 ### Screenshot
 
-![card-challenge](https://user-images.githubusercontent.com/50514728/186026921-e52f2ae6-1487-418b-af8f-1891dfbfbdae.png)
+![card-challenge](https://user-images.githubusercontent.com/50514728/186472307-5825bd51-fe14-450b-bde8-d717e31be96a.png)
+
 
 ### Links
 
