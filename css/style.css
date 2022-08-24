@@ -38,6 +38,15 @@ img {
   max-width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
 .main {
   display: flex;
   height: 100vh;
@@ -55,14 +64,14 @@ img {
 
 .main-card-front {
   position: absolute;
-  top: 100px;
-  left: 150px;
+  top: 15.5%;
+  left: 8%;
 }
 
 .main-card-back {
   position: absolute;
-  top: 380px;
-  left: 250px;
+  bottom: 15%;
+  left: 15%;
 }
 
 .front-card {
@@ -144,6 +153,7 @@ label {
   width: 100%;
   margin-bottom: 0.5em;
   text-transform: uppercase;
+  color: var(--very-dark-violet);
 }
 
 input {
@@ -158,6 +168,7 @@ input {
   font-size: 0.9rem;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
+  margin-bottom: 0.3em;
 }
 
 input:focus {
@@ -165,7 +176,7 @@ input:focus {
 }
 
 input::placeholder {
-  color: var(--light-grayish-violet);
+  color: var(--dark-grayish-violet);
 }
 
 .form .sec-info {
@@ -194,7 +205,7 @@ input::placeholder {
   outline: none;
   background-color: var(--very-dark-violet);
   color: var(--white);
-  padding: 0.8em 0rem;
+  padding: 0.5em 0rem;
   font-size: 1.2rem;
   border-radius: 6px;
   cursor: pointer;
