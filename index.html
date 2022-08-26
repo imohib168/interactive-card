@@ -113,17 +113,23 @@
 
           <button type="submit" class="btn">Confirm</button>
         </form>
-        <div class="content-section">
-          <div class="submitted hidden" id="submitted">
-            <img src="images/icon-complete.svg" alt="complete icon" />
-            <h3>Thank you!</h3>
-            <p>We've added your card details</p>
-            <button type="button" class="btn" onclick="successContinue()">
-              Continue
-            </button>
-          </div>
+
+        <div class="submitted hidden" id="submitted">
+          <img src="images/icon-complete.svg" alt="complete icon" />
+          <h3>Thank you!</h3>
+          <p>We've added your card details</p>
+          <button
+            type="button"
+            class="btn continue-btn"
+            onclick="successContinue()"
+          >
+            Continue
+          </button>
         </div>
       </section>
+      <!-- <section class="content-section">
+
+      </section> -->
     </main>
 
     <script src="js/script.js"></script>

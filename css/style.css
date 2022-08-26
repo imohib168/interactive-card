@@ -113,16 +113,16 @@ h6 {
 }
 
 .card-back {
+  position: relative;
   margin-left: 25%;
   margin-top: 2em;
-  position: relative;
   color: var(--white);
 }
 
 .card-back-cvc {
   position: absolute;
   top: 44%;
-  left: 355px;
+  left: 62%;
   letter-spacing: 2px;
 }
 
@@ -213,6 +213,10 @@ h6 {
   transition: all 0.5s cubic-bezier(0.075, 0, 0.165, 1);
 }
 
+.continue-btn {
+  max-width: 300px !important;
+}
+
 .btn:hover {
   opacity: 0.8;
 }
@@ -231,7 +235,6 @@ h6 {
 /* Form Submitted (Thankyou page) */
 .submitted {
   width: 100%;
-  /* max-width: 400px; */
   text-transform: uppercase;
   text-align: center;
 
@@ -267,6 +270,10 @@ h6 {
   .card-content {
     width: 75%;
   }
+
+  .card-back-cvc {
+    left: 74%;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -280,6 +287,10 @@ h6 {
 
   .card-back {
     margin-left: 15%;
+  }
+
+  .card-back-cvc {
+    left: 75%;
   }
 }
 
@@ -308,6 +319,10 @@ h6 {
 
   .card-back {
     margin-left: 10%;
+  }
+
+  .card-back-cvc {
+    left: 76%;
   }
 }
 
@@ -379,6 +394,10 @@ h6 {
   .submitted {
     margin: 5em 0;
   }
+
+  .card-back-cvc {
+    left: 78%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -411,6 +430,11 @@ h6 {
 
   .more-content {
     font-size: 0.7rem;
+  }
+
+  .card-back-cvc {
+    top: 43%;
+    left: 78%;
   }
 }
 
